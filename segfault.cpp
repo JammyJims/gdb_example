@@ -1,5 +1,8 @@
-#include<iostream> // input and output streams
-#include <string>
+#include <iostream> // input and output streams
+#include <string> // stoi()
+// gdb dashboard on git hub: https://github.com/cyrus-and/gdb-dashboard
+
+// templated node class which functions as a foward linked list, can contain any data type
 template <typename dtype>
 class node {
 public:
@@ -34,7 +37,7 @@ public:
 		return nth_node;
 	}
 	
-	// operator overload for cout << node
+	// print entire list by passing in pointer to a node
 	friend std::ostream& operator << (std::ostream &os, const node<dtype> *n) {
 		using namespace std;
 		os << "[ " ;
@@ -46,6 +49,7 @@ public:
 		return os;
 	}
 	
+	// print just a single node by passing in a node
 	friend std::ostream& operator << (std::ostream &os, const node<dtype> &n) {
 		os << n.data;
 		return os;
